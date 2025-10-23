@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -20,14 +21,16 @@
 
             <!-- Page Content -->
             <main class="flex w-full">
-                <div class="w-64">
+                <div class="w-64 h-screen">
                     <livewire:layout.sidebar/>
                 </div>
 
-                <div class="bg-gray-200 min-h-screen flex-grow pt-20">
-                    <livewire:layout.topbar />
+                <div class="bg-gray-200 min-h-screen grow">
+                    <div class="h-14 relative">
+                        <livewire:layout.topbar />
+                    </div>
 
-                    <div class="px-6">
+                    <div class="p-6">
                         {{ $slot }}
                     </div>
                 </div>

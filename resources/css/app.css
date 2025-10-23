@@ -1,5 +1,11 @@
 @import "./home.css";
+@import "./sidebar.css";
+@import "./topbar.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    box-sizing: border-box;
+}
