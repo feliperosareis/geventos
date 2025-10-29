@@ -1,5 +1,6 @@
 @import "./home.css";
-@import "./sidebar.css";
+@import "./taildash.css";
+/* @import "./sidebar.css"; */
 @import "./topbar.css";
 
 @tailwind base;

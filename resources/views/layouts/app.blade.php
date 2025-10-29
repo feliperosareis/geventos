@@ -14,27 +14,35 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+        <!--start::Global javascript (used in all pages)-->
+        <script src="vendors/alpinejs/dist/cdn.min.js"></script><!-- core js -->
+        <script src="vendors/flatpickr/dist/flatpickr.min.js"></script><!-- input date -->
+        <script src="vendors/flatpickr/dist/plugins/rangePlugin.js"></script><!-- input range date -->
+        <script src="vendors/@yaireo/tagify/dist/tagify.js"></script><!-- input tags -->
+        <script src="vendors/pristinejs/dist/pristine.min.js"></script><!-- form validation -->
+        <script src="vendors/simple-datatables/dist/umd/simple-datatables.js"></script><!--sort table-->
+        <!--end::Global javascript (used in all pages)-->
+
+        <!--start::Vendor javascript (only on this page)-->
+        <script src="vendors/jsvectormap/dist/js/jsvectormap.min.js"></script><!-- vector map -->
+        <script src="vendors/jsvectormap/dist/maps/world.js"></script><!-- world vector map -->
+        <!--end::Vendor javascript (only on this page)-->
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             {{-- <livewire:layout.navigation /> --}}
 
-            <!-- Page Content -->
-            <main class="flex w-full">
-                <div class="w-64 h-screen">
-                    <livewire:layout.sidebar/>
-                </div>
+            <div x-data="{ sidebar: false }" class="wrapper overflow-x-hidden flex">
+                <livewire:layout.sidebar/>
+                <livewire:layout.topbar/>
 
-                <div class="bg-gray-200 min-h-screen grow">
-                    <div class="h-14 relative">
-                        <livewire:layout.topbar />
-                    </div>
-
-                    <div class="p-6">
+                <main class="pt-20 -mt-2">
+                    <div class="mx-auto py-2 sm:px-2">
                         {{ $slot }}
                     </div>
-                </div>
-            </main>
+                <main>
+            </div>
         </div>
     </body>
 </html>
