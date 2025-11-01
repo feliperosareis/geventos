@@ -10359,10 +10359,9 @@ text,
     inset-inline-start: 0;
     box-sizing: border-box;
     grid-template-areas: "top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";
-    grid-template-rows: minmax(-webkit-min-content, auto) minmax(
-            -webkit-min-content,
-            auto
-        ) minmax(-webkit-min-content, auto);
+    grid-template-rows:
+        minmax(-webkit-min-content, auto) minmax(-webkit-min-content, auto)
+        minmax(-webkit-min-content, auto);
     grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(
             min-content,
             auto
@@ -12169,7 +12168,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
 }
 .table-bordered thead tr,
 .table-bordered-bottom thead tr {
-    background-color: var(--color-gray-100);
+    background-color: var(--color-gray-300);
     &:where(.dark, .dark *) {
         background-color: color-mix(
             in oklab,

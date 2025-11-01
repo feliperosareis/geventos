@@ -30,15 +30,15 @@
         <!--end::Vendor javascript (only on this page)-->
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-200">
             {{-- <livewire:layout.navigation /> --}}
 
             <div x-data="{ sidebar: false }" class="wrapper overflow-x-hidden flex">
                 <livewire:layout.sidebar/>
                 <livewire:layout.topbar/>
 
-                <main class="pt-20 -mt-2">
-                    <div class="mx-auto py-2 sm:px-2">
+                <main class="pt-20 -mt-2 w-full">
+                    <div class="mx-auto py-5 sm:px-8">
                         {{ $slot }}
                     </div>
                 <main>

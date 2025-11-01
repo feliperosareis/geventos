@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::view('dashboard', 'admin.dashboard')->name('dashboard');
+    Route::view('clientes', 'admin.customers')->name('clientes');
+    Route::view('eventos', 'admin.events')->name('eventos');
+});
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+
 
 require __DIR__.'/auth.php';

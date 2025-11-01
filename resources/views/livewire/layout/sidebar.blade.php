@@ -53,651 +53,70 @@
 
         <!-- Sidebar menu -->
         <ul id="side-menu" x-data="{ selected : 1 }" class="w-full float-none flex flex-col font-medium ps-1.5">
-          <!-- dropdown -->
-          <li class="relative">
-            <a :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 1 }" @click="selected !== 1 ? selected = 1 : selected = null" class="dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-house-door" viewBox="0 0 16 16">
+          <li>
+            <a :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 1 }" class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="dashboard" wire:navigate>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-5 me-1 bi bi-house-door" viewBox="0 0 16 16">
                 <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-house-door"></i> -->
-              <span>Dashboards</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 1, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 1) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 1, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 1) }"></i> -->
-              </span>
+              <span>Dashboard</span>
             </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 1" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7 py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="active block w-full py-2 px-6 clear-both whitespace-nowrap [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index.html">CMS</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-analytics.html">Analytics</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-ecommerce.html">Ecommerce</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-projects.html">Projects</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-crm.html">CRM</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-hosting.html">Hosting</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-saas.html">Saas</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-sales.html">Sales</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="index-marketing.html">Marketing</a>
-              </li>
-            </ul>
           </li>
 
           <li>
-            <a class="dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="calendar.html">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-calendar4-week" viewBox="0 0 16 16">
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
-                <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="eventos" wire:navigate>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="inline-block size-5 me-1" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-calendar4-week"></i> -->
-              <span>Calendar</span>
+              <span>Eventos</span>
             </a>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 2 }" @click="selected !== 2 ? selected = 2 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-shop" viewBox="0 0 16 16">
-                <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-shop"></i> -->
-              <span>Ecommerce</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 2, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 2) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 2, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 2) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 2" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/product.html">Products</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/product-detail.html">Product Details</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/order.html">Orders</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/order-detail.html">Order Details</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/customers.html">Customers</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/cart.html">Shopping Cart</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/checkout.html">Checkout</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/seller.html">Sellers</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="ecommerce/invoice.html">Invoice</a>
-              </li>
-            </ul>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 3 }" @click="selected !== 3 ? selected = 3 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-briefcase" viewBox="0 0 16 16">
-                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-briefcase"></i> -->
-              <span>Projects</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 3, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 3) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 3, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 3) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 3" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="project/list.html">List</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="project/detail.html">Detail</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="project/kanban.html">Kanban</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="project/create.html">Create</a>
-              </li>
-            </ul>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 4 }" @click="selected !== 4 ? selected = 4 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-file-earmark-richtext" viewBox="0 0 16 16">
-                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                <path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm1.639-3.708 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V8.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8s1.54-1.274 1.639-1.208zM6.25 6a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-file-earmark-richtext"></i> -->
-              <span>Pages</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 4, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 4) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 4, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 4) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 4" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.outside="open = false">
-               <a @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" id="auth" class="dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-                  Authentication
-                  <!-- caret -->
-                  <span class="inline-block float-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }"></i> -->
-                  </span>
-                </a>
-                <ul class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal" x-show="open" 
-                x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-                role="menu" aria-orientation="vertical" aria-labelledby="auth">
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/register-basic.html">Register basic</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/register-cover.html">Register cover</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/register-ilustration.html">Register ilustration</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/login-basic.html">Login basic</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/login-cover.html">Login cover</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/login-ilustration.html">Login ilustration</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/forgot-password.html">Forgot password</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/confirm-email.html">Confirm email</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/change-password.html">Change password</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="authentication/logout-page.html">Logout page</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-profile.html">Profile</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-service.html">Services</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-faq.html">Faq</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-pricing.html">Pricing</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-maintenance.html">Maintenance</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-404.html">404</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="pages-starter.html">Starter</a>
-              </li>
-            </ul>
           </li>
 
           <li>
-            <a class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="landing.html">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-window-sidebar" viewBox="0 0 16 16">
-                <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v2H1V3a1 1 0 0 1 1-1h12zM1 13V6h4v8H2a1 1 0 0 1-1-1zm5 1V6h9v7a1 1 0 0 1-1 1H6z"/>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="clientes" wire:navigate>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="inline-block size-5 me-1" viewBox="0 0 22 22" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-window-sidebar"></i> -->
-              <span>Landing page</span>
+              <span>Clientes</span>
             </a>
           </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 5 }" @click="selected !== 5 ? selected = 5 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-layout-sidebar-inset" viewBox="0 0 16 16">
-                <path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h12zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
-                <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-layout-sidebar-inset"></i> -->
-              <span>Layout</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 5, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 5) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 5, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 5) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 5" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-sidedark.html">Side Dark</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-dark.html">Dark mode</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-rtl.html">RTL mode</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-compact.html">Compact</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-topnav.html">Top Navbar</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="layout-preloader.html">Preloader</a>
-              </li>
-            </ul>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 6 }" @click="selected !== 6 ? selected = 6 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block size-4 me-2 bi bi-layers" viewBox="0 0 16 16">
-                <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0l3.515-1.874zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-layers"></i> -->
-              <span>Components</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 6, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 6) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 6, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 6) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 6" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/accordion.html">Accordion</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/alerts.html">Alerts</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/avatar.html">Avatar</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/badge.html">Badge</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/breadcrumb.html">Breadcrumb</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/buttons.html">Buttons</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/card.html">Card</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/carousel.html">Carousel</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/collapse.html">Collapse</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/devices.html">Devices</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/dropdowns.html">Dropdowns</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/grid.html">Grid</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/list-group.html">List Group</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/lightbox.html">Lightbox</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/map.html">Map</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/modal.html">Modal</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/navbar.html">Navbar</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/notification.html">Notification</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/offcanvas.html">Offcanvas</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/pagination.html">Pagination</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/popovers.html">Popovers</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/progress.html">Progress</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/ribbon.html">Ribbon</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/scrollbar.html">Scrollbar</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/spinners.html">Spinners</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/sweetalert.html">Sweet alert</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/tabs.html">Tabs</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="components/tooltips.html">Tooltips</a>
-              </li>
-            </ul>
-          </li>
-
           <li>
-            <a class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="widgets.html">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block size-4 me-2 bi bi-columns-gap" viewBox="0 0 16 16">
-                <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="calendar.html">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block size-5 me-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-window-sidebar"></i> -->
-              <span>Widgets</span>
+
+              <span>Fornecedores</span>
             </a>
           </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 7 }" @click="selected !== 7 ? selected = 7 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-card-list" viewBox="0 0 16 16">
-                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+          <li>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="calendar.html">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block size-5 me-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-card-list"></i> -->
-              <span>Forms</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 7, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 7) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 7, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 7) }"></i> -->
-              </span>
+
+              <span>Produtos</span>
             </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 7" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/basic.html">Basic Form</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/datepicker.html">Datepicker</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/editor.html">Editor</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/input-tags.html">Input tags</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/uploader.html">Uplader</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/validation.html">Validation</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="forms/layout.html">Layout</a>
-              </li>
-            </ul>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 8 }" @click="selected !== 8 ? selected = 8 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-blockquote-right" viewBox="0 0 16 16">
-                <path d="M2.5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm10.113-5.373a6.59 6.59 0 0 0-.445-.275l.21-.352c.122.074.272.17.452.287.18.117.35.26.51.428.156.164.289.351.398.562.11.207.164.438.164.692 0 .36-.072.65-.216.873-.145.219-.385.328-.721.328-.215 0-.383-.07-.504-.211a.697.697 0 0 1-.188-.463c0-.23.07-.404.211-.521.137-.121.326-.182.569-.182h.281a1.686 1.686 0 0 0-.123-.498 1.379 1.379 0 0 0-.252-.37 1.94 1.94 0 0 0-.346-.298zm-2.168 0A6.59 6.59 0 0 0 10 6.352L10.21 6c.122.074.272.17.452.287.18.117.35.26.51.428.156.164.289.351.398.562.11.207.164.438.164.692 0 .36-.072.65-.216.873-.145.219-.385.328-.721.328-.215 0-.383-.07-.504-.211a.697.697 0 0 1-.188-.463c0-.23.07-.404.211-.521.137-.121.327-.182.569-.182h.281a1.749 1.749 0 0 0-.117-.492 1.402 1.402 0 0 0-.258-.375 1.94 1.94 0 0 0-.346-.3z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-blockquote-right"></i> -->
-              <span>Content</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 8, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 8) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 8, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 8) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 8" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="content/typography.html">Typography</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="content/tables.html">Tables</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="content/images.html">Images</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="content/embed-video.html">Embed video</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="content/icons.html">Icons</a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="relative">
-            <a class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="charts.html">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-bar-chart-line" viewBox="0 0 16 16">
-                <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-bar-chart-line"></i> -->
-              <span>Charts</span>
-            </a>
-          </li>
-
-          <li class="relative">
-            <a class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="file-manager.html">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-folder" viewBox="0 0 16 16">
-                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-folder"></i> -->
-              <span>File Manager</span>
-            </a>
-          </li>
-
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 9 }" @click="selected !== 9 ? selected = 9 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block size-4 me-2 bi  bi-file-text" viewBox="0 0 16 16">
-                <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-              </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-file-text"></i> -->
-              <span>Documentation</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 9, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 9) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 9, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 9) }"></i> -->
-              </span>
-            </a>
-
-            <!-- dropdown menu -->
-            <ul x-show="selected == 9" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/introduction.html">Introduction</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/tools.html">Tools</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/customize.html">Customize</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/rtl.html">RTL Direction</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/credits.html">Credits</a>
-              </li>
-              <li class="relative">
-                <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="docs/changelog.html">Changelog</a>
-              </li>
-            </ul>
           </li>
           
-          <!-- dropdown -->
-          <li class="relative">
-            <a  :class="{ 'text-indigo-500 dark:text-indigo-400': selected == 10 }" @click="selected !== 10 ? selected = 10 : selected = null" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block size-4 me-2 bi bi-list-nested" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z"/>
+          <li>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="calendar.html">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block size-5 me-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
               </svg>
-              <!-- <i class="inline-block size-4 me-2 bi bi-list-nested"></i> -->
-             <span>Multi Level</span>
-              <!-- caret -->
-              <span class="inline-block float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 10, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 10) }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': selected == 10, 'ltr:-rotate-90 rtl:rotate-90': !(selected == 10) }"></i> -->
-              </span>
+
+              <span>Financeiro</span>
             </a>
-            <ul x-show="selected == 10" 
-            x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-            class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal">
-              <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.outside="open = false">
-               <a :class="{ 'text-indigo-500': open }" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" id="mobiledrop-91" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-                  Second Level
-                  <!-- caret -->
-                  <span class="inline-block float-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }"></i> -->
-                  </span>
-                </a>
-                <ul class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal" x-show="open" 
-                x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-                role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-91">
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap  dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="#">Item 1</a>
-                  </li>
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap  dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="#">Item 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.outside="open = false">
-                <a :class="{ 'text-indigo-500': open }" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" id="mobiledrop-92" class=" dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-                  Third Level
-                  <!-- caret -->
-                  <span class="inline-block float-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }"></i> -->
-                  </span>
-                </a>
-                <ul class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal" x-show="open" 
-                x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-                role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-92">
-                  <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="#">Item 1</a>
-                  </li>
-                  <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.outside="open = false">
-                    <a :class="{ 'text-indigo-500': open }" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" id="mobiledrop-93" class="[&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="javascript:;">
-                      <span> Item 2 </span>
-                      <!-- caret -->
-                      <span class="inline-block float-end">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }" width=".8rem" height=".8rem" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                        <!-- <i class="transform transition duration-300 mt-1.5 bi bi-chevron-down" :class="{ 'rotate-0': open, 'ltr:-rotate-90 rtl:rotate-90': !open }"></i> -->
-                      </span>
-                    </a>
-                    <ul class="block rounded-sm rounded-t-none top-full z-50 ps-7  py-0.5 text-start mb-1 font-normal" x-show="open" 
-                    x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" 
-                    role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-93">
-                      <li class="relative">
-                        <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="#">Item 2.1</a>
-                      </li>
-                      <li class="relative">
-                        <a class="block w-full py-2 px-6 clear-both whitespace-nowrap dark:text-indigo-800 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-400" href="#">Item 2.2</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </li>
+          <li>
+            <a class="dark:text-indigo-500 [&.active]:text-indigo-500 dark:[&.active]:text-indigo-400 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-indigo-400" href="calendar.html">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22" stroke-width="1.5" stroke="currentColor" class="inline-block size-5 me-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+              </svg>
+              <span>Logística</span>
+            </a>
+          </li>
+
+          
         </ul>
       </div>
     </aside>
