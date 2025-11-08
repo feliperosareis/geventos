@@ -21,9 +21,9 @@ new #[Layout('layouts.guest')] class extends Component
     public function register(): void
     {
         $validated = $this->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
         
         $validated['password'] = Hash::make($validated['password']);
@@ -31,7 +31,6 @@ new #[Layout('layouts.guest')] class extends Component
         event(new Registered($user = User::create($validated)));
         
         Auth::login($user);
-        
         $this->redirect(route('dashboard', absolute: false), navigate: true);
     }
 }; ?>
@@ -190,20 +189,20 @@ new #[Layout('layouts.guest')] class extends Component
                 <div class="max-w-full w-full md:w-2/3 lg:w-1/2 px-6 sm:px-12">
                     <div class="relative">
                         <div class="p-6 sm:py-8 sm:px-12 rounded-lg bg-white  shadow-xl">
-                            <form id="register-form">
+                            <form id="register-form" wire:submit="register">
                                 <h1 class="text-2xl leading-normal mb-6 font-bold text-gray-800   text-center">Registro</h1>
                                 <hr class="block w-12 h-0.5 mx-auto my-5 bg-gray-700 border-gray-700">
                                 <div class="mb-6">
-                                    <input name="name" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Nome Completo" value="" aria-label="nome completo" type="text" required>
+                                    <input name="name" wire:model="name" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Nome Completo" value="" aria-label="nome completo" type="text" required>
                                 </div>
                                 <div class="mb-6">
-                                    <input name="email" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Email" value="" aria-label="email" type="email" required>
+                                    <input name="email" wire:model="email" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Email" value="" aria-label="email" type="email" required>
                                 </div>
                                 <div class="mb-6">
-                                    <input class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Senha" aria-label="senha" type="password" value="" required>
+                                    <input wire:model="password" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Senha" aria-label="senha" type="password" value="" required>
                                 </div>
                                 <div class="mb-6">
-                                    <input class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Confirmar Senha" aria-label="confirmar senha" type="password" value="" required>
+                                    <input wire:model="password_confirmation" class="w-full leading-5 relative py-2 px-4 rounded-sm text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-hidden focus:border-gray-400 focus:ring-0" placeholder="Confirmar Senha" aria-label="confirmar senha" type="password" value="" required>
                                 </div>
                                 <div class="mb-6 flex items-center">
                                     <input class="form-checkbox h-5 w-5 text-indigo-500  border border-gray-300  rounded-sm focus:outline-hidden" type="checkbox" value="" id="terms" required>
@@ -219,7 +218,7 @@ new #[Layout('layouts.guest')] class extends Component
                             </form>
                             <div class="mt-3">
                                 <p class="text-center mb-3">Já é cadastrado?</p>
-                                <p class="text-center"><a class="hover:text-indigo-500" href="login-basic.html">Login</a></p>
+                                <p class="text-center"><a class="hover:text-indigo-500" href="/login">Login</a></p>
                             </div>
                         </div>
                     </div>
